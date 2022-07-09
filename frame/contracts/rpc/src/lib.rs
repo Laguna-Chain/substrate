@@ -83,12 +83,12 @@ impl From<ContractAccessError> for JsonRpseeError {
 #[serde(rename_all = "camelCase")]
 #[serde(deny_unknown_fields)]
 pub struct CallRequest<AccountId> {
-	origin: AccountId,
-	dest: AccountId,
-	value: NumberOrHex,
-	gas_limit: NumberOrHex,
-	storage_deposit_limit: Option<NumberOrHex>,
-	input_data: Bytes,
+	pub origin: AccountId,
+	pub dest: AccountId,
+	pub value: NumberOrHex,
+	pub gas_limit: NumberOrHex,
+	pub storage_deposit_limit: Option<NumberOrHex>,
+	pub input_data: Bytes,
 }
 
 /// A struct that encodes RPC parameters required to instantiate a new smart-contract.
@@ -96,13 +96,13 @@ pub struct CallRequest<AccountId> {
 #[serde(rename_all = "camelCase")]
 #[serde(deny_unknown_fields)]
 pub struct InstantiateRequest<AccountId, Hash> {
-	origin: AccountId,
-	value: NumberOrHex,
-	gas_limit: NumberOrHex,
-	storage_deposit_limit: Option<NumberOrHex>,
-	code: Code<Hash>,
-	data: Bytes,
-	salt: Bytes,
+	pub origin: AccountId,
+	pub value: NumberOrHex,
+	pub gas_limit: NumberOrHex,
+	pub storage_deposit_limit: Option<NumberOrHex>,
+	pub code: Code<Hash>,
+	pub data: Bytes,
+	pub salt: Bytes,
 }
 
 /// A struct that encodes RPC parameters required for a call to upload a new code.
@@ -110,9 +110,9 @@ pub struct InstantiateRequest<AccountId, Hash> {
 #[serde(rename_all = "camelCase")]
 #[serde(deny_unknown_fields)]
 pub struct CodeUploadRequest<AccountId> {
-	origin: AccountId,
-	code: Bytes,
-	storage_deposit_limit: Option<NumberOrHex>,
+	pub origin: AccountId,
+	pub code: Bytes,
+	pub storage_deposit_limit: Option<NumberOrHex>,
 }
 
 /// Contracts RPC methods.
